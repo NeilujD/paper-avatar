@@ -4,14 +4,19 @@
   "description": "A simple avatar using the paper-fab style",
   "homepage": "https://neilujd.github.io/paper-avatar",
   "authors": [
-    "NeilujD"
+    "Julien Collard <julien.collard14@gmail.com> (http://neilujd.com)"
   ],
+  "license": "Apache-2.0",
   "keywords": [
     "web-components",
     "polymer",
     "button",
     "avatar"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neilujd/paper-avatar.git"
+  },
   "main": "paper-avatar.html",
   "ignore": [],
   "dependencies": {
