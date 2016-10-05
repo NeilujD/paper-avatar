@@ -2,6 +2,8 @@
 
 An simple avatar using the paper-fab style
 
+## [Demo](https://neilujd.github.io/paper-avatar)
+
 ## Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
