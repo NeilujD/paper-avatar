@@ -1,8 +1,8 @@
+[Demo and API Docs](https://neilujd.github.io/paper-avatar)
+
 # \<paper-avatar\>
 
 An simple avatar using the paper-fab style
-
-## [Demo](https://neilujd.github.io/paper-avatar)
 
 ## Install the Polymer-CLI
 
