@@ -1,8 +1,26 @@
+[Demo and API Docs](https://neilujd.github.io/paper-avatar)
+
 # \<paper-avatar\>
 
 An simple avatar using the paper-fab style
 
-## [Demo](https://neilujd.github.io/paper-avatar)
+## Example 
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="paper-avatar.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-avatar 
+  image-src="https://www.gravatar.com/avatar/21a286cfe071e1bb5e8b631d20e54c52?s=60"></paper-avatar>
+```
 
 ## Install the Polymer-CLI
 
