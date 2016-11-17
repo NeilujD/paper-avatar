@@ -133,6 +133,7 @@ Custom property | Description | Default
       src="[[imageSrc]]"
       loaded="{{imageLoaded}}"
       preload
+      sizing="[[imageSizing]]"
       fade></iron-image>
     <span hidden$="{{_computeIsIconFab(icon, iconSrc)}}">{{label}}</span>
   </template>
@@ -187,7 +188,14 @@ Custom property | Description | Default
         label: {
           type: String,
           observer: '_labelChanged'
-        }
+        },
+
+        /**
+         * Permit to set the sizing image mode. The possible values are "contain" or "cover"
+         *
+         * @type string
+         */
+        imageSizing: String
       },
 
       _labelChanged: function() {
