@@ -19,7 +19,7 @@ Example:
 
     <link href="path/to/iron-icons/social-icons.html" rel="import">
 
-    <paper-avatar src="path/to/your/image.jpg"></paper-avatar>
+    <paper-avatar image-src="path/to/your/image.jpg"></paper-avatar>
     <paper-avatar mini icon="social:person-outline"></paper-avatar>
 
 ### Styling
@@ -126,7 +126,7 @@ Custom property | Description | Default
 
     <iron-icon
       id="icon"
-      hidden$="{{!_computeIsIconFab(icon, iconSrc, imageSrc)}}"
+      hidden$="{{!_computeIsIconFab(icon, iconSrc)}}"
       src="[[iconSrc]]"
       icon="[[icon]]"></iron-icon>
     <iron-image
@@ -147,17 +147,22 @@ Custom property | Description | Default
       ],
 
       properties: {
-        imageLoaded: Boolean,
+        /**
+         * Notify that the image is loaded.
+         */
+        imageLoaded: {
+          type: Boolean
+        },
 
         /**
-         * The URL of an image for the icon. If the src property is specified,
+         * The URL of an image for the icon. If the srcImage property is specified,
          * the icon property should not be.
          *
          * @type string
          */
         iconSrc: {
           type: String,
-          value: ''
+          value: ""
         },
 
         /**
@@ -167,7 +172,14 @@ Custom property | Description | Default
          */
         icon: {
           type: String,
-          value: 'social:person-outline'
+          value: "social:person-outline"
+        },
+
+        /**
+         * Permit to set the image source path or url.
+         */
+        imageSrc: {
+          type: String
         },
 
         /**
@@ -182,8 +194,6 @@ Custom property | Description | Default
         /**
          * The label displayed in the badge. The label is centered, and ideally
          * should have very few characters.
-         *
-         * @type string
          */
         label: {
           type: String,
@@ -192,10 +202,10 @@ Custom property | Description | Default
 
         /**
          * Permit to set the sizing image mode. The possible values are "contain" or "cover"
-         *
-         * @type string
          */
-        imageSizing: String
+        imageSizing: {
+          type: String
+        }
       },
 
       _labelChanged: function() {
