@@ -126,7 +126,7 @@ Custom property | Description | Default
 
     <iron-icon
       id="icon"
-      hidden$="{{!_computeIsIconFab(icon, iconSrc)}}"
+      hidden$="{{!_computeIsIconFab(icon, iconSrc, label)}}"
       src="[[iconSrc]]"
       icon="[[icon]]"></iron-icon>
     <iron-image
@@ -135,7 +135,7 @@ Custom property | Description | Default
       preload
       sizing="[[imageSizing]]"
       fade></iron-image>
-    <span hidden$="{{_computeIsIconFab(icon, iconSrc)}}">{{label}}</span>
+    <span hidden$="{{_computeIsIconFab(icon, iconSrc, label)}}">{{label}}</span>
   </template>
 
   <script>
@@ -197,7 +197,7 @@ Custom property | Description | Default
          */
         label: {
           type: String,
-          observer: '_labelChanged'
+          observer: "_labelChanged"
         },
 
         /**
@@ -212,8 +212,8 @@ Custom property | Description | Default
         this.setAttribute('aria-label', this.label);
       },
 
-      _computeIsIconFab: function(icon, src) {
-        return (icon.length > 0) || (src.length > 0);
+      _computeIsIconFab: function(icon, src, label) {
+        return !label && ((icon.length > 0) || (src.length > 0));
       }
     });
   </script>
