@@ -1,0 +1,225 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../paper-behaviors/paper-button-behavior.html">
+<link rel="import" href="../paper-material/paper-material-shared-styles.html">
+<link rel="import" href="../paper-styles/shadow.html">
+<link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+
+<!--
+Material design: [Floating Action Button](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
+
+`paper-avatar` is a simple avatar using the `paper-fab` style.
+
+Example:
+
+    <link href="path/to/iron-icons/social-icons.html" rel="import">
+
+    <paper-avatar image-src="path/to/your/image.jpg"></paper-avatar>
+    <paper-avatar mini icon="social:person-outline"></paper-avatar>
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-avatar-background` | The background color of the button | `--accent-color`
+`--paper-avatar-keyboard-focus-background` | The background color of the button when focused | `--paper-pink-900`
+`--paper-avatar-disabled-background` | The background color of the button when it's disabled | `--paper-grey-300`
+`--paper-avatar-disabled-text` | The text color of the button when it's disabled | `--paper-grey-500`
+`--paper-avatar` | Mixin applied to the button | `{}`
+`--paper-avatar-mini` | Mixin applied to a mini button | `{}`
+`--paper-avatar-disabled` | Mixin applied to a disabled button | `{}`
+`--paper-avatar-iron-icon` | Mixin applied to the iron-icon within the button | `{}`
+`--paper-avatar-size` | Size of the avatar | `56px`
+`--paper-avatar-mini-size` | Size of the mini avatar | `40px`
+
+@group Paper Elements
+@demo demo/index.html
+-->
+
+<dom-module id="paper-avatar">
+  <template>
+    <style include="paper-material-shared-styles">
+      :host {
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+
+        /* paper-avatar custom styles */
+        @apply --shadow-transition;
+        overflow: hidden;
+
+        /* paper-fab default style */
+        background: var(--paper-avatar-background, var(--accent-color));
+        border-radius: 50%;
+        box-sizing: border-box;
+        color: var(--text-primary-color);
+        cursor: pointer;
+        height: var(--paper-avatar-size, 56px);
+        min-width: 0;
+        outline: none;
+        position: relative;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        width: var(--paper-avatar-size, 56px);
+        z-index: 0;
+
+        /* NOTE: Both values are needed, since some phones require the value `transparent`. */
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
+
+        @apply --paper-avatar;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      :host([mini]) {
+        width: var(--paper-avatar-mini-size, 40px);
+        height: var(--paper-avatar-mini-size, 40px);
+        padding: 8px;
+
+        @apply --paper-avatar-mini;
+      }
+
+      :host([disabled]) {
+        color: var(--paper-avatar-disabled-text, var(--paper-grey-500));
+        background: var(--paper-avatar-disabled-background, var(--paper-grey-300));
+
+        @apply --paper-avatar-disabled;
+      }
+
+      iron-icon {
+        @apply --paper-avatar-iron-icon;
+      }
+
+      iron-image {
+        position: absolute;
+        width: var(--paper-avatar-size, 56px);
+        height: var(--paper-avatar-size, 56px);
+        top: 0;
+      }
+      :host([mini]) iron-image {
+        width: var(--paper-avatar-mini-size, 40px);
+        height: var(--paper-avatar-mini-size, 40px);
+      }
+
+      span {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+      }
+
+      :host(.keyboard-focus) {
+        background: var(--paper-avatar-keyboard-focus-background, var(--paper-pink-900));
+      }
+    </style>
+
+    <iron-icon
+      id="icon"
+      hidden="{{!_computeIsIconFab(icon, iconSrc, label)}}"
+      src="[[iconSrc]]"
+      icon="[[icon]]"></iron-icon>
+    <iron-image
+      src="[[imageSrc]]"
+      loaded="{{imageLoaded}}"
+      preload
+      sizing="[[imageSizing]]"
+      fade></iron-image>
+    <span hidden$="{{_computeIsIconFab(icon, iconSrc, label)}}">{{label}}</span>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'paper-avatar',
+
+      behaviors: [
+        Polymer.PaperButtonBehavior
+      ],
+
+      properties: {
+        /**
+         * Notify that the image is loaded.
+         */
+        imageLoaded: {
+          type: Boolean
+        },
+
+        /**
+         * The URL of an image for the icon. If the srcImage property is specified,
+         * the icon property should not be.
+         *
+         * @type string
+         */
+        iconSrc: {
+          type: String,
+          value: ""
+        },
+
+        /**
+         * Specifies the icon name or index in the set of icons available in
+         * the icon's icon set. If the icon property is specified,
+         * the src property should not be.
+         */
+        icon: {
+          type: String,
+          value: "social:person-outline"
+        },
+
+        /**
+         * Permit to set the image source path or url.
+         */
+        imageSrc: {
+          type: String
+        },
+
+        /**
+         * Set this to true to style this is a "mini" FAB.
+         */
+        mini: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        },
+
+        /**
+         * The label displayed in the badge. The label is centered, and ideally
+         * should have very few characters.
+         */
+        label: {
+          type: String,
+          observer: "_labelChanged"
+        },
+
+        /**
+         * Permit to set the sizing image mode. The possible values are "contain" or "cover"
+         *
+         * @type string
+         * @default "contain"
+         */
+        imageSizing: {
+          type: String,
+          value: "contain"
+        }
+      },
+
+      _labelChanged: function() {
+        this.setAttribute('aria-label', this.label);
+      },
+
+      _computeIsIconFab: function(icon, src, label) {
+        return !label && ((icon.length > 0) || (src.length > 0));
+      }
+    });
+  </script>
+</dom-module>

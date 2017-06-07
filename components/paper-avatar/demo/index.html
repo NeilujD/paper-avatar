@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>paper-avatar demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../../paper-styles/shadow.html">
+
+    <link rel="import" href="../paper-avatar.html">
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic paper-avatar Demo</h3>
+      <demo-snippet>
+        <template>
+          <paper-avatar image-src="https://www.gravatar.com/avatar/21a286cfe071e1bb5e8b631d20e54c52?s=60"></paper-avatar>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>paper-avatar without settings `imageSrc` Demo</h3>
+      <demo-snippet>
+        <template>
+          <paper-avatar></paper-avatar>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>paper-avatar with custom style demo</h3>
+      <demo-snippet>
+        <template>
+          <style is="custom-style" include="demo-pages-shared-styles">
+           #customAvatar {
+             --paper-avatar-background: var(--google-blue-300);
+             @apply(--shadow-none);
+             --paper-avatar: {
+               border: 1px solid var(--google-yellow-300);
+             };
+           }
+           #customAvatar:hover {
+             @apply(--shadow-elevation-8dp);
+           }
+          </style>
+          <paper-avatar id="customAvatar" icon="social:person"></paper-avatar>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>paper-avatar with specific image sizing</h3>
+      <demo-snippet>
+        <template>
+          <paper-avatar image-src="http://lorempixel.com/400/200" image-sizing="cover" id="customAvatar" icon="social:person"></paper-avatar>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>paper-avatar with label</h3>
+      <demo-snippet>
+        <template>
+          <paper-avatar label="N"></paper-avatar>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

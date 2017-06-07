@@ -28,13 +28,21 @@
     "paper-behaviors": "PolymerElements/paper-behaviors#^2.0.0",
     "paper-material": "PolymerElements/paper-material#^2.0.0",
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
-    "iron-icons": "PolymerElements/iron-icons#^2.0.0",
-    "paper-avatar": "NeilujD/paper-avatar#^2.0.0"
+    "iron-icons": "PolymerElements/iron-icons#^2.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
     "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
-  }
+  },
+  "_release": "2.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.1",
+    "commit": "64c5e10bfc20eb92f7ffd7345180d6e6db8783ce"
+  },
+  "_source": "https://github.com/NeilujD/paper-avatar.git",
+  "_target": "^2.0.0",
+  "_originalSource": "NeilujD/paper-avatar"
 }
