@@ -47,15 +47,15 @@ Custom property | Description | Default
   <template>
     <style include="paper-material-shared-styles">
       :host {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
+        @apply --layout-vertical;
+        @apply --layout-center-center;
 
         /* paper-avatar custom styles */
-        @apply(--shadow-transition);
+        @apply --shadow-transition;
         overflow: hidden;
 
         /* paper-fab default style */
-        background: var(--paper-avatar-background, --accent-color);
+        background: var(--paper-avatar-background, var(--accent-color));
         border-radius: 50%;
         box-sizing: border-box;
         color: var(--text-primary-color);
@@ -75,7 +75,7 @@ Custom property | Description | Default
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         -webkit-tap-highlight-color: transparent;
 
-        @apply(--paper-avatar);
+        @apply --paper-avatar;
       }
 
       [hidden] {
@@ -87,18 +87,18 @@ Custom property | Description | Default
         height: var(--paper-avatar-mini-size, 40px);
         padding: 8px;
 
-        @apply(--paper-avatar-mini);
+        @apply --paper-avatar-mini;
       }
 
       :host([disabled]) {
-        color: var(--paper-avatar-disabled-text, --paper-grey-500);
-        background: var(--paper-avatar-disabled-background, --paper-grey-300);
+        color: var(--paper-avatar-disabled-text, var(--paper-grey-500));
+        background: var(--paper-avatar-disabled-background, var(--paper-grey-300));
 
-        @apply(--paper-avatar-disabled);
+        @apply --paper-avatar-disabled;
       }
 
       iron-icon {
-        @apply(--paper-avatar-iron-icon);
+        @apply --paper-avatar-iron-icon;
       }
 
       iron-image {
@@ -120,13 +120,13 @@ Custom property | Description | Default
       }
 
       :host(.keyboard-focus) {
-        background: var(--paper-avatar-keyboard-focus-background, --paper-pink-900);
+        background: var(--paper-avatar-keyboard-focus-background, var(--paper-pink-900));
       }
     </style>
 
     <iron-icon
       id="icon"
-      hidden$="{{!_computeIsIconFab(icon, iconSrc, label)}}"
+      hidden="{{!_computeIsIconFab(icon, iconSrc, label)}}"
       src="[[iconSrc]]"
       icon="[[icon]]"></iron-icon>
     <iron-image
