@@ -1,16 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-icons/social-icons.html">
-<link rel="import" href="../iron-image/iron-image.html">
-<link rel="import" href="../paper-behaviors/paper-button-behavior.html">
-<link rel="import" href="../paper-material/paper-material-shared-styles.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-
-<!--
+/**
 Material design: [Floating Action Button](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
 
 `paper-avatar` is a simple avatar using the `paper-fab` style.
@@ -41,10 +29,27 @@ Custom property | Description | Default
 
 @group Paper Elements
 @demo demo/index.html
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '../polymer/polymer-legacy.js';
 
-<dom-module id="paper-avatar">
-  <template>
+import '../iron-flex-layout/iron-flex-layout.js';
+import '../iron-icon/iron-icon.js';
+import '../iron-icons/social-icons.js';
+import '../iron-image/iron-image.js';
+import { PaperButtonBehavior } from '../paper-behaviors/paper-button-behavior.js';
+import '../paper-material/paper-material-shared-styles.js';
+import '../paper-styles/shadow.js';
+import '../paper-styles/color.js';
+import '../paper-styles/default-theme.js';
+import { Polymer } from '../polymer/lib/legacy/polymer-fn.js';
+import { html } from '../polymer/lib/utils/html-tag.js';
+Polymer({
+  _template: html`
     <style include="paper-material-shared-styles">
       :host {
         @apply --layout-vertical;
@@ -71,7 +76,7 @@ Custom property | Description | Default
         width: var(--paper-avatar-size, 56px);
         z-index: 0;
 
-        /* NOTE: Both values are needed, since some phones require the value `transparent`. */
+        /* NOTE: Both values are needed, since some phones require the value \`transparent\`. */
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         -webkit-tap-highlight-color: transparent;
 
@@ -125,101 +130,88 @@ Custom property | Description | Default
       }
     </style>
 
-    <iron-icon
-      id="icon"
-      hidden="{{!_computeIsIconFab(icon, iconSrc, label)}}"
-      src="[[iconSrc]]"
-      icon="[[icon]]"></iron-icon>
-    <iron-image
-      src="[[imageSrc]]"
-      loaded="{{imageLoaded}}"
-      preload
-      sizing="[[imageSizing]]"
-      fade></iron-image>
-    <span hidden$="{{_computeIsIconFab(icon, iconSrc, label)}}">{{label}}</span>
-  </template>
+    <iron-icon id="icon" hidden="{{!_computeIsIconFab(icon, iconSrc, label)}}" src="[[iconSrc]]" icon="[[icon]]"></iron-icon>
+    <iron-image src="[[imageSrc]]" loaded="{{imageLoaded}}" preload="" sizing="[[imageSizing]]" fade=""></iron-image>
+    <span hidden\$="{{_computeIsIconFab(icon, iconSrc, label)}}">{{label}}</span>
+`,
 
-  <script>
-    Polymer({
-      is: 'paper-avatar',
+  is: 'paper-avatar',
 
-      behaviors: [
-        Polymer.PaperButtonBehavior
-      ],
+  behaviors: [
+    PaperButtonBehavior
+  ],
 
-      properties: {
-        /**
-         * Notify that the image is loaded.
-         */
-        imageLoaded: {
-          type: Boolean
-        },
+  properties: {
+    /**
+     * Notify that the image is loaded.
+     */
+    imageLoaded: {
+      type: Boolean
+    },
 
-        /**
-         * The URL of an image for the icon. If the srcImage property is specified,
-         * the icon property should not be.
-         *
-         * @type string
-         */
-        iconSrc: {
-          type: String,
-          value: ""
-        },
+    /**
+     * The URL of an image for the icon. If the srcImage property is specified,
+     * the icon property should not be.
+     *
+     * @type string
+     */
+    iconSrc: {
+      type: String,
+      value: ""
+    },
 
-        /**
-         * Specifies the icon name or index in the set of icons available in
-         * the icon's icon set. If the icon property is specified,
-         * the src property should not be.
-         */
-        icon: {
-          type: String,
-          value: "social:person-outline"
-        },
+    /**
+     * Specifies the icon name or index in the set of icons available in
+     * the icon's icon set. If the icon property is specified,
+     * the src property should not be.
+     */
+    icon: {
+      type: String,
+      value: "social:person-outline"
+    },
 
-        /**
-         * Permit to set the image source path or url.
-         */
-        imageSrc: {
-          type: String
-        },
+    /**
+     * Permit to set the image source path or url.
+     */
+    imageSrc: {
+      type: String
+    },
 
-        /**
-         * Set this to true to style this is a "mini" FAB.
-         */
-        mini: {
-          type: Boolean,
-          value: false,
-          reflectToAttribute: true
-        },
+    /**
+     * Set this to true to style this is a "mini" FAB.
+     */
+    mini: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true
+    },
 
-        /**
-         * The label displayed in the badge. The label is centered, and ideally
-         * should have very few characters.
-         */
-        label: {
-          type: String,
-          observer: "_labelChanged"
-        },
+    /**
+     * The label displayed in the badge. The label is centered, and ideally
+     * should have very few characters.
+     */
+    label: {
+      type: String,
+      observer: "_labelChanged"
+    },
 
-        /**
-         * Permit to set the sizing image mode. The possible values are "contain" or "cover"
-         *
-         * @type string
-         * @default "contain"
-         */
-        imageSizing: {
-          type: String,
-          value: "contain"
-        }
-      },
+    /**
+     * Permit to set the sizing image mode. The possible values are "contain" or "cover"
+     *
+     * @type string
+     * @default "contain"
+     */
+    imageSizing: {
+      type: String,
+      value: "contain"
+    }
+  },
 
-      _labelChanged: function() {
-        this.setAttribute('aria-label', this.label);
-      },
+  _labelChanged: function() {
+    this.setAttribute('aria-label', this.label);
+  },
 
-      _computeIsIconFab: function(icon, src, label) {
-        return !label && ((icon.length > 0) || (src.length > 0));
-      }
-    });
-  </script>
-</dom-module>
+  _computeIsIconFab: function(icon, src, label) {
+    return !label && ((icon.length > 0) || (src.length > 0));
+  }
+});

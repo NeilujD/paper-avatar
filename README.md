@@ -1,3 +1,5 @@
+![Vaadin Directory availability](https://img.shields.io/badge/Vaadin%20Directory-available-green.svg?style=flat-square&colorB=00b4f0&link=https://vaadin.com/directory)
+
 [Demo and API Docs](https://neilujd.github.io/paper-avatar)
 
 # \<paper-avatar\>
@@ -10,8 +12,8 @@ An simple avatar using the paper-fab style
 ```
 <custom-element-demo>
   <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="paper-avatar.html">
+    <script src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" src="paper-avatar.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
