@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "",
+      "summary": "",
+      "path": "paper-avatar.js",
+      "properties": [
+        {
+          "name": "imageLoaded",
+          "type": "boolean | null | undefined",
+          "description": "Notify that the image is loaded.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 147,
+              "column": 4
+            },
+            "end": {
+              "line": 149,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "iconSrc",
+          "type": "string | null | undefined",
+          "description": "The URL of an image for the icon. If the srcImage property is specified,\nthe icon property should not be.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 4
+            },
+            "end": {
+              "line": 160,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "defaultValue": "\"\""
+        },
+        {
+          "name": "icon",
+          "type": "string | null | undefined",
+          "description": "Specifies the icon name or index in the set of icons available in\nthe icon's icon set. If the icon property is specified,\nthe src property should not be.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 4
+            },
+            "end": {
+              "line": 170,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "defaultValue": "\"social:person-outline\""
+        },
+        {
+          "name": "imageSrc",
+          "type": "string | null | undefined",
+          "description": "Permit to set the image source path or url.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 175,
+              "column": 4
+            },
+            "end": {
+              "line": 177,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "mini",
+          "type": "boolean | null | undefined",
+          "description": "Set this to true to style this is a \"mini\" FAB.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 4
+            },
+            "end": {
+              "line": 186,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "The label displayed in the badge. The label is centered, and ideally\nshould have very few characters.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 4
+            },
+            "end": {
+              "line": 195,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_labelChanged\"",
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "imageSizing",
+          "type": "string | null | undefined",
+          "description": "Permit to set the sizing image mode. The possible values are \"contain\" or \"cover\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 203,
+              "column": 4
+            },
+            "end": {
+              "line": 206,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "defaultValue": "\"contain\""
+        },
+        {
+          "name": "_template",
+          "type": "?",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 2
+            },
+            "end": {
+              "line": 135,
+              "column": 1
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_labelChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 209,
+              "column": 2
+            },
+            "end": {
+              "line": 211,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_computeIsIconFab",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 213,
+              "column": 2
+            },
+            "end": {
+              "line": 215,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "icon"
+            },
+            {
+              "name": "src"
+            },
+            {
+              "name": "label"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 50,
+          "column": 8
+        },
+        "end": {
+          "line": 216,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "image-loaded",
+          "description": "Notify that the image is loaded.",
+          "sourceRange": {
+            "start": {
+              "line": 147,
+              "column": 4
+            },
+            "end": {
+              "line": 149,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "icon-src",
+          "description": "The URL of an image for the icon. If the srcImage property is specified,\nthe icon property should not be.",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 4
+            },
+            "end": {
+              "line": 160,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "icon",
+          "description": "Specifies the icon name or index in the set of icons available in\nthe icon's icon set. If the icon property is specified,\nthe src property should not be.",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 4
+            },
+            "end": {
+              "line": 170,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "image-src",
+          "description": "Permit to set the image source path or url.",
+          "sourceRange": {
+            "start": {
+              "line": 175,
+              "column": 4
+            },
+            "end": {
+              "line": 177,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "mini",
+          "description": "Set this to true to style this is a \"mini\" FAB.",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 4
+            },
+            "end": {
+              "line": 186,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "label",
+          "description": "The label displayed in the badge. The label is centered, and ideally\nshould have very few characters.",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 4
+            },
+            "end": {
+              "line": 195,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "image-sizing",
+          "description": "Permit to set the sizing image mode. The possible values are \"contain\" or \"cover\"",
+          "sourceRange": {
+            "start": {
+              "line": 203,
+              "column": 4
+            },
+            "end": {
+              "line": 206,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "paper-avatar"
+    }
+  ]
+}

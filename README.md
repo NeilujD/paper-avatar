@@ -12,8 +12,8 @@ An simple avatar using the paper-fab style
 ```
 <custom-element-demo>
   <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="paper-avatar.html">
+    <script src="../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" src="paper-avatar.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
